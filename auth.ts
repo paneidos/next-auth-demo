@@ -1,13 +1,13 @@
-import NextAuth from 'next-auth';
+import NextAuth, {User} from 'next-auth';
 import { authConfig } from './auth.config';
 import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod';
 
-export type User = {
+type MyUser = {
     password: string
 }
 
-async function getUser(email: string): Promise<User | undefined> {
+async function getUser(email: string): Promise<(MyUser & User) | undefined> {
     try {
         if (email === 'test@example.com') {
             return {password: 'hunter2'}
