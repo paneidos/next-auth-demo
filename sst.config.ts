@@ -12,7 +12,8 @@ export default {
     app.stack(function Site({ stack }) {
       const site = new NextjsSite(stack, "site", {
         environment: {
-          AUTH_KEY: process.env.AUTH_KEY ?? '',
+          AUTH_SECRET: process.env.AUTH_SECRET ?? '',
+          AUTH_TRUST_HOST: 'true',
         }
       });
 
