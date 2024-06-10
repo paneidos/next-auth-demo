@@ -10,7 +10,7 @@ type MyUser = {
 async function getUser(email: string): Promise<(MyUser & User) | undefined> {
     try {
         if (email === 'test@example.com') {
-            return {password: 'hunter2'}
+            return {password: 'hunter2', email: 'test@example.com'}
         }
     } catch (error) {
         console.error('Failed to fetch user:', error);
